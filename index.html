@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171742">
+  <meta name="description" content="KuisKilat: permainan kuis interaktif untuk kelas. Buat soal, bagikan PIN, dan lihat peringkat langsung.">
+  <title>KuisKilat Online — Kuis kelas dari mana saja</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/quiz-csv.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <button id="brand-home" class="brand" type="button" aria-label="Kembali ke halaman awal">
+        <span class="brand-mark" aria-hidden="true">⚡</span><span>Kuis<span class="brand-accent">Kilat</span></span>
+      </button>
+      <div class="topright"><span class="tiny-pill"><span class="live-dot"></span> Kuis langsung</span><span id="session-info"></span></div>
+    </header>
+    <main id="app" class="app-content" aria-live="polite"></main>
+    <footer>Dirancang untuk belajar yang lebih seru · KuisKilat</footer>
+  </div>
+  <div id="toasts" class="toast-container" role="status" aria-live="polite"></div>
+</body>
+</html>

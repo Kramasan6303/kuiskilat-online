@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: kuiskilat-online
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST_ACCESS_CODE
+        sync: false

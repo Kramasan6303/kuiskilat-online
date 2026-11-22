@@ -1,0 +1,15 @@
+'use strict';
+const assert = require('node:assert/strict');
+const { parseQuizCsv, templateCsv } = require('../public/quiz-csv.js');
+const draft = parseQuizCsv(templateCsv());
+assert.equal(draft.questions.length, 2);
+assert.equal(draft.questions[0].correct, 1);
+assert.equal(draft.questions[1].correct, 2);
+assert.equal(draft.questions[0].seconds, 20);
+const semi = `pertanyaan;a;b;c;d;jawaban_benar;waktu_detik\n"Hasil 7 + 8?";14;15;16;17;2;10`;
+assert.equal(parseQuizCsv(semi).questions[0].correct, 1);
+const quoted = `pertanyaan,a,b,c,d,jawaban_benar,waktu_detik\n"Sebutkan pasangan angka, berikut!","1, 2",3,4,5,A,10`;
+assert.equal(parseQuizCsv(quoted).questions[0].options[0], '1, 2');
+assert.throws(() => parseQuizCsv(semi.replace(';2;10', ';E;10')));
+assert.throws(() => parseQuizCsv(semi.replace(';2;10', ';2;9')));
+console.log('✓ Uji CSV: template, impor Excel titik koma, teks berpetik, dan validasi berhasil.');

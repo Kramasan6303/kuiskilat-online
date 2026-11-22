@@ -1,0 +1,11 @@
+{
+  "name": "kuiskilat-online",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Aplikasi kuis daring real-time guru-siswa dengan PIN, skor, dan unduhan hasil",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/smoke.js && node tests/online.js && node tests/csv.js"
+  },
+  "engines": { "node": ">=20" }
+}
